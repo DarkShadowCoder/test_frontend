@@ -12,7 +12,7 @@ Ouvrir le navigateur Chrome
     Wait Until Page Contains Element  xpath=/html/body/div[3]/div/div/div[1]/a/img
 
 *** Variables ***
-${count}  Cart ($137)
+
 
 *** Test Cases ***
 Test de connection au site web
@@ -24,12 +24,14 @@ Test de connection à un compte
     Click Link  xpath=/html/body/div[3]/div/div/div[2]/ul/li[1]/a
     Wait Until Page Contains Element  xpath=/html/body/div[5]/div/h1
     Sleep  2s
+Test d'inscription de l'utilisateur au site web
     Input Text  xpath=/html/body/div[6]/div/div/div/div/form/div/div[2]/div[1]/input  ${email}
     Sleep  1s
 Test d'authentification de l'utilisateur
     Input Password  xpath=/html/body/div[6]/div/div/div/div/form/div/div[2]/div[2]/input  ${password}
     #Click Element  xpath=/html/body/div[6]/div/div/div/div/form/div/div[2]/div[3]/input
     #Wait Until Page Contains Element  xpath=/html/body/div[6]/div/div/div[1]/div/div/img
+Test d'autorisation de l'utilisateur
     Sleep  2s
     Go To  ${WEBSITE}
 Test Naviguation dans le site web
@@ -156,18 +158,23 @@ Test Consultation la page de contactUs
 Test de Contact du service client
     Input Text  xpath=/html/body/div[6]/div/div/div/div/div[1]/div/form/div/div[1]/div[1]/input    yvan
     Sleep  1s
+Test d'ajout de l'email
     Input Text  xpath=/html/body/div[6]/div/div/div/div/div[1]/div/form/div/div[1]/div[2]/input    ${email}
     Sleep  1s
+Test d'ajout de numero telephonique
     Input Text  xpath=/html/body/div[6]/div/div/div/div/div[1]/div/form/div/div[1]/div[3]/input    698076337
     Sleep  1s
+Test d'ajout de requete
     Input Text  xpath=/html/body/div[6]/div/div/div/div/div[1]/div/form/div/div[2]/div/textarea     ${MESSAGE}
 Test de retour à l'accueil
     Click Element  xpath=/html/body/div[6]/div/div/div/div/div[1]/div/form/div/div[3]/input
     #Wait Until Page Does Not Contain Element  xpath=/html/body/div[6]/div/div/div/div/div[1]/div/form/div/div[3]/input
     Sleep  2s
     Alert Should Be Present
+Test de retour à la page precedente
     Go Back
     Go To  ${WEBSITE}
+Test de navigation dans la page
     Wait Until Page Contains Element  xpath=/html/body/div[3]/div/div/div[2]/ul/li[3]/a
     Sleep  1s
 Test de Consultation la liste des produits du panier
@@ -216,6 +223,7 @@ Test de Visite de la page Facebook du site web
 Test de Visite de la page Twitter du site web
     Go To  ${WEBSITE}
     Sleep  1.5s
+
     Click Element  xpath=/html/body/div[2]/div/div/div[2]/div/ul/li[2]/a
     Wait Until Page Does Not Contain Element  xpath=/html/body/div[2]/div/div/div[2]/div/ul/li[1]/a
     Sleep  2s
@@ -223,6 +231,7 @@ Test de Visite de la page Twitter du site web
 Test Visite de la page Youtube du site web
     Go To  ${WEBSITE}
     Sleep  1.5s
+Test de verification des informations utilisées
     Click Element  xpath=/html/body/div[2]/div/div/div[2]/div/ul/li[3]/a
     Wait Until Page Does Not Contain Element  xpath=/html/body/div[2]/div/div/div[2]/div/ul/li[1]/a
     Sleep  2s
@@ -230,6 +239,7 @@ Test Visite de la page Youtube du site web
 Test Visite la page Instagram du site web
     Go To  ${WEBSITE}
     Sleep  1.5s
+Test de verification de la connection internet
     Click Element  xpath=/html/body/div[2]/div/div/div[2]/div/ul/li[4]/a
     Wait Until Page Does Not Contain Element  xpath=/html/body/div[2]/div/div/div[2]/div/ul/li[1]/a
     Sleep  2s
